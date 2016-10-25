@@ -17,7 +17,7 @@ def main():
     fileargs = ['input1', 'input2', 'input3', 'input4', 'input5']
     labelargs = ['label1', 'label2', 'label3', 'label4', 'label5']
 
-    for i in xrange(len(fileargs)):
+    for i in range(len(fileargs)):
         parser.add_argument('-i{}'.format(i+1), '--{}'.format(fileargs[i]),
             required=True if i==0 else False,
             help='Path to input file {}'.format(i))
