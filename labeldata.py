@@ -35,7 +35,8 @@ def main():
 
     args = parser.parse_args()
     # Unescape the delimiter
-    args.delimiter = args.delimiter.decode('string_escape')
+    # args.delimiter = args.delimiter.decode('string_escape') # Python 2
+    args.delimiter = bytes(args.delimiter, "utf-8").decode('unicode_escape') # Python 3
     # Convert args to dict
     vargs = vars(args)
 
