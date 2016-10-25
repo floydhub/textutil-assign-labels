@@ -45,7 +45,7 @@ def main():
 
     # Load data from files
     output = []
-    for i in xrange(len(fileargs)):
+    for i in range(len(fileargs)):
         file = vargs[fileargs[i]]
         label = vargs[labelargs[i]]
         if file and label:
