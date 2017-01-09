@@ -3,6 +3,18 @@ import argparse
 import distutils.util
 import random
 
+def str2bool(val):
+    """
+    Helper method to convert string to bool
+    """
+    if val is None:
+        return False
+    val = val.lower().strip()
+    if val in ['true', 't', 'yes', 'y', '1', 'on']:
+        return True
+    elif val in ['false', 'f', 'no', 'n', '0', 'off']:
+        return False
+
 def main():
     """
     Simple helper script to assign labels to data in multiple files. All the rows in 
@@ -28,7 +40,7 @@ def main():
     parser.add_argument('-o', '--output', required=True, help='Path to output file')
     parser.add_argument('-d', '--delimiter', required=True, default='\t', 
         help='Column delimiter between row and label')
-    parser.add_argument('-s', '--shuffle', required=False, type=distutils.util.strtobool,
+    parser.add_argument('-s', '--shuffle', required=False, type=str2bool,
         default='False', help='Shuffle rows in output?')
     parser.add_argument('-p', '--position', required=False, choices=['start', 'end'],
         default='end', help='Position label at start or end of row? (Default is end)')
